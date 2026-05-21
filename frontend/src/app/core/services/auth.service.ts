@@ -43,13 +43,13 @@ export class AuthService {
     });
   }
 
-  async sendMagicLink(email: string): Promise<{ error: string | null }> {
-    const { error } = await this.supabase.auth.signInWithOtp({
-      email,
-      options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
-      },
-    });
+  async signIn(email: string, password: string): Promise<{ error: string | null }> {
+    const { error } = await this.supabase.auth.signInWithPassword({ email, password });
+    return { error: error?.message ?? null };
+  }
+
+  async signUp(email: string, password: string): Promise<{ error: string | null }> {
+    const { error } = await this.supabase.auth.signUp({ email, password });
     return { error: error?.message ?? null };
   }
 
