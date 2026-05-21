@@ -25,6 +25,7 @@ describe('authGuard', () => {
   it('should redirect unauthenticated user to /login', async () => {
     setup(false);
     const result = await TestBed.runInInjectionContext(() =>
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       authGuard({} as any, {} as any)
     );
     const router = TestBed.inject(Router);
@@ -34,6 +35,7 @@ describe('authGuard', () => {
   it('should allow authenticated user through', async () => {
     setup(true);
     const result = await TestBed.runInInjectionContext(() =>
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       authGuard({} as any, {} as any)
     );
     expect(result).toBe(true);

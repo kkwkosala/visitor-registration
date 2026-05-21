@@ -83,8 +83,8 @@ import { VisitRequest } from '../../../core/models/visit-request.model';
       }
 
       @if (deleteTarget()) {
-        <div class="modal-backdrop" (click)="deleteTarget.set(null)">
-          <div class="modal-card" (click)="$event.stopPropagation()">
+        <div class="modal-backdrop">
+          <div class="modal-card">
             <h2>Delete request?</h2>
             <p>
               Delete the visit request for

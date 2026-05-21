@@ -41,6 +41,7 @@ describe('VisitorDashboardComponent', () => {
   it('should show loading state initially', () => {
     // Service returns a never-resolving promise to keep loading state
     const mockService = {
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       getOwnRequests: vi.fn().mockReturnValue(new Promise(() => {})),
       deleteRequest: vi.fn(),
     };

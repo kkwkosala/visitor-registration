@@ -42,8 +42,8 @@ import {
 
     <!-- Filter bar (VIS-006) -->
     <div class="filter-bar">
-      <label class="filter-label">Filter by status:</label>
-      <div class="filter-buttons">
+      <span class="filter-label">Filter by status:</span>
+      <div class="filter-buttons" role="group" aria-label="Filter by status">
         @for (opt of filterOptions; track opt.value) {
           <button
             class="btn btn-sm"
@@ -60,7 +60,7 @@ import {
     @if (loading()) {
       <div class="loading-state">
         <div class="spinner"></div>
-        <p>Loading requests…</p>
+        <p>Loading requestsï¿½</p>
       </div>
     }
 
@@ -110,7 +110,7 @@ import {
                       Reject
                     </button>
                   } @else {
-                    <span class="text-muted">—</span>
+                    <span class="text-muted">ï¿½</span>
                   }
                 </td>
               </tr>
@@ -143,7 +143,7 @@ import {
             id="admin-comment"
             class="form-control"
             rows="3"
-            placeholder="Add a note to the visitor…"
+            placeholder="Add a note to the visitorï¿½"
             [(ngModel)]="actionCommentBound"
           ></textarea>
 
