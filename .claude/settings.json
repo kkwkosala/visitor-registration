@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "ai_tool": "GitHub Copilot (Claude Sonnet 4.6) + Claude Code",
+  "project": "Visitor Registration System",
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(ng *)",
+      "Bash(git *)",
+      "Bash(npx *)",
+      "Read(**)",
+      "Write(frontend/src/**)",
+      "Write(supabase/**)",
+      "Write(docs/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Write(.env)",
+      "Write(**/*.prod.ts)"
+    ]
+  },
+  "env": {
+    "NG_CLI_ANALYTICS": "false",
+    "CI": "false"
+  },
+  "mcp_servers": {
+    "angular-cli": {
+      "command": "npx",
+      "args": ["-y", "@angular/cli", "mcp"],
+      "description": "Angular CLI MCP server for component generation, routing, and build intelligence"
+    }
+  },
+  "context_files": [
+    "CLAUDE.md",
+    "docs/ADR.md",
+    "supabase/migrations/001_initial_schema.sql"
+  ],
+  "notes": [
+    "Run SQL scripts in Supabase SQL Editor — not via CLI",
+    "environment.ts holds Supabase credentials — never commit real values",
+    "All tests use vitest (Angular 21 default) — not Karma/Jasmine",
+    "Run tests: cd frontend && ng test --watch=false",
+    "Run lint: cd frontend && ng lint"
+  ]
+}
